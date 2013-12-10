@@ -1,26 +1,27 @@
 //
 //  BDAppDelegate.m
-//  WhereAmI
+//  WhereAmI+UISegmentControl
 //
-//  Created by admin on 06.12.13.
+//  Created by admin on 10.12.13.
 //  Copyright (c) 2013 admin. All rights reserved.
 //
 
 #import "BDAppDelegate.h"
 #import "WorkWindowViewController.h"
+#import "Map1ViewController.h"
 @implementation BDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    WorkWindowViewController *window1 = [[WorkWindowViewController alloc] init];
-    [[self window] setRootViewController:window1];
+    // Override point for customization after application launch.
+  // WorkWindowViewController *first = [[WorkWindowViewController alloc] init];
+    Map1ViewController *first = [[Map1ViewController alloc] init];
+    [[self window]setRootViewController:first];
     [self.window makeKeyAndVisible];
     return YES;
+    
 }
-
-
-#pragma mark Other metods
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {

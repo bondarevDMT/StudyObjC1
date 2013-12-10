@@ -1,8 +1,8 @@
 //
 //  BDAppDelegate.h
-//  WhereAmI
+//  UISegmentedControl
 //
-//  Created by admin on 06.12.13.
+//  Created by admin on 10.12.13.
 //  Copyright (c) 2013 admin. All rights reserved.
 //
 

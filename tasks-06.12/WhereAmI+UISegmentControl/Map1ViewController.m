@@ -1,19 +1,18 @@
 //
-//  WorkWindowViewController.m
-//  WhereAmI
+//  Map1ViewController.m
+//  WhereAmI+UISegmentControl
 //
-//  Created by admin on 06.12.13.
+//  Created by admin on 10.12.13.
 //  Copyright (c) 2013 admin. All rights reserved.
 //
 
-#import "WorkWindowViewController.h"
-
-@interface WorkWindowViewController()
+#import "Map1ViewController.h"
+#import "MapPoint.h" //TODO мне подключать MapPoint.h здесь или в .h?? Где правильнее?? (в чем разница?) если в Map1ViewController.h подключаю MapPoint.h то могу и там и в .m создавать экземпляры mapPointa а если только в .m подключаю хэдер MapPoint то соответственно только здесь могу работать с экземплярами
+@interface Map1ViewController ()
 
 @end
 
-@implementation WorkWindowViewController
-
+@implementation Map1ViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,7 +22,7 @@
         [locationManager setDelegate:self];
         [locationManager setDistanceFilter:kCLDistanceFilterNone];
         [locationManager setDesiredAccuracy:kCLLocationAccuracyBest];//TODO Если убираю locationManeger все-равно происходит поиск моего местоположения (то есть при использовании UIMapView мне он не нужен???) и Вообще правильно ли я его разместил (может лучше было бы его разместить в делегате приложения?)ммм нет наверное я не прав дальше в -(void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation я его применяю
-
+        
     }
     return self;
 }
@@ -33,6 +32,7 @@
     [super viewDidLoad];
     [worldMap setShowsUserLocation:YES];//Запускаю поиск местоположения пользователя
     [worldMap setDelegate:self];//Устанавливаю делегатом wiorlMap данный класс
+     worldMap.mapType = MKMapTypeHybrid;
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,7 +46,7 @@
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     [self findLocation];
-   // [textField resignFirstResponder];
+    // [textField resignFirstResponder];
     return YES;
 }
 
@@ -68,7 +68,7 @@
     CLLocationCoordinate2D coord = [userLocation coordinate]; //принимаю координаты
     MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(coord, 250, 250);//создаю регион соответствующий окрестностям север-ют (250 метров) юг-восток (250 метров) для coord
     [worldMap setRegion:region animated:YES]; //вывожу на карту данный регион используя анимацию
-
+    
 }
 
 #pragma mark Metods for delegate CLLocationManager
@@ -91,8 +91,8 @@
 -(void)foundLocation:(CLLocation *)loc1
 {
     CLLocationCoordinate2D coord = [loc1 coordinate];
-    MapPoint *mp = [[MapPoint alloc] init];
-    //TODO Не понимаю почему идет ошибка (когда начинаю применять метод initWithCoordinate:coord title:[textField text]) из MapPoint
+    MapPoint *mp = [[MapPoint alloc] initWithCoordinate:coord title:[textField text]];
+    //TODO Не понимаю почему идет ошибка (когда начинаю применять метод initWithCoordinate:coord title:[textField text]) из MapPoint (не мог приметить данный метод пока в .h не подключил хэдер MapPoit.h и не создал там MapPoint *mp) в WhereAmI такая ошибка всегда (посмотреть)
     
     
     [worldMap addAnnotation:mp];
@@ -106,4 +106,3 @@
 
 
 @end
-

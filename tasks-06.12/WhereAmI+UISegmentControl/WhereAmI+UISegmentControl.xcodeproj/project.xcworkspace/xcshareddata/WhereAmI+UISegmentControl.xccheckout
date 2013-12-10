@@ -5,16 +5,16 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>5373A886-1318-498D-887C-DDF2949A60A6</string>
+	<string>75529C62-E4E9-4744-A269-3E065390BFD8</string>
 	<key>IDESourceControlProjectName</key>
-	<string>WhereAmI</string>
+	<string>WhereAmI+UISegmentControl</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>CE769C63-5AFF-41AD-83A7-225D608A1117</key>
 		<string>https://github.com/bondarevDMT/StudyObjC1.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>tasks-06.12/WhereAmI/WhereAmI.xcodeproj/project.xcworkspace</string>
+	<string>tasks-06.12/WhereAmI+UISegmentControl/WhereAmI+UISegmentControl.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>CE769C63-5AFF-41AD-83A7-225D608A1117</key>
